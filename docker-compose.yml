@@ -5,6 +5,6 @@ redis:
       - 6379
 tilda:
     image: jizacal/tilda:latest
-    container_name: tilda
+    container_name: mock
     expose: 
         - 5111
