@@ -2,9 +2,13 @@ redis:
     image: redis
     container_name: cache
     expose:
-      - 6379
+        - 6379
+    ports:
+        - "6379:6379"
 tilda:
     image: jizacal/tilda:latest
     container_name: mock
     expose: 
         - 5111
+    ports:
+        - "5111:5111"
