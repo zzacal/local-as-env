@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "53e12106-4d39-4e02-a26b-6c42709e31f8",
+		"name": "loungemembership-helpers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "local get /",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJHdWlkIjoiNDdkZDA2NGEtZTg5MC00MmE1LTk3MGMtM2VjNDQwMGJkODJkIiwiSXNTdXBlclVzZXIiOiJGYWxzZSIsIkNvbnRhY3RJZCI6IjEtVEUwTk42IiwiYmlydGhkYXRlIjoiNC8zMC8xOTg1IiwiZ2l2ZW5fbmFtZSI6Ik5pY2siLCJmYW1pbHlfbmFtZSI6IlRlc3RlciIsIk1pbGVhZ2VQbGFuIjoiMzAwMDc1OTQxIiwibmJmIjoxNTc5ODkyMTY3LCJleHAiOjE5Nzk4OTI0NjcsImlhdCI6MTU3OTg5MjE2NywiaXNzIjoiaHR0cHM6Ly93d3cuYWxhc2thYWlyLmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmFsYXNrYWFpci5jb20ifQ.88OvDnWXZ4hIbOH7z1DjIi3cU8UDI4J6D6MGH2m2Si8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "ab55fc20e7b94f45bd79736ebc8803a2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tilda account mock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"path\": \"/1/marketing/loyaltymanagement/account/graphql/\",\n        \"params\": {},\n        \"body\": {\n            \"query\": \"{member(memberId: \\\"47dd064a-e890-42a5-970c-3ec4400bd82d\\\") { email, mileagePlanNumber, legalName { firstName, lastName }, mailingAddress { buildingRoom, cityName, countryCode, postalCode, stateProvince, streetNumber }, billingAddresses {isPrimary, streetNumber, buildingRoom, cityName, cityName, stateProvince, countryCode, postalCode, displayName, id}}}\"\n        }\n    },\n    \"response\": {\n        \"type\": \"obj\",\n        \"status\": \"200\",\n        \"body\": {\n            \"data\": {\n                \"member\": {\n                    \"email\": \"chip_linnenlord@qmail.edu\",\n                    \"mileagePlanNumber\": \"300075941\",\n                    \"legalName\": {\n                        \"firstName\": \"Chip\",\n                        \"lastName\": \"Linnenlord\"\n                    },\n                    \"mailingAddress\": {\n                        \"buildingRoom\": \"Apt 111\",\n                        \"cityName\": \"Seattle\",\n                        \"countryCode\": \"US\",\n                        \"postalCode\": \"98119\",\n                        \"stateProvince\": \"WA\",\n                        \"streetNumber\": \"1902 4821st St\"\n                    },\n                    \"billingAddresses\": [\n                        {\n                            \"isPrimary\": true,\n                            \"streetNumber\": \"123 primary billing lane\",\n                            \"buildingRoom\": \"apt 123\",\n                            \"cityName\": \"Seattle\",\n                            \"stateProvince\": \"WA\",\n                            \"countryCode\": \"US\",\n                            \"postalCode\": \"98119\",\n                            \"displayName\": \"\",\n                            \"id\": \"A2\"\n                        },\n                        {\n                            \"isPrimary\": false,\n                            \"streetNumber\": \"528 Weirdo Alley\",\n                            \"buildingRoom\": \"Nook 123\",\n                            \"cityName\": \"Seattle\",\n                            \"stateProvince\": \"WA\",\n                            \"countryCode\": \"US\",\n                            \"postalCode\": \"98119\",\n                            \"displayName\": \"\",\n                            \"id\": \"A3\"\n                        }\n                    ]\n                }\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5111/mock",
+					"host": [
+						"localhost"
+					],
+					"port": "5111",
+					"path": [
+						"mock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tilda membership mock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"path\": \"/1/marketing/loyaltyManagement/lounge/\",\n        \"params\": {},\n        \"body\": {\n            \"body\": {\n                \"MileagePlanNumber\": \"300075941\",\n                \"PartnerName\": \"INTERNAL-ALASKA_LOUNGE\"\n            }\n        }\n    },\n    \"response\": {\n        \"type\": \"obj\",\n        \"status\": \"200\",\n        \"body\": {\n            \"endMembershipDate\": \"6/30/2021\",\n            \"solarStatus\": \"00\",\n            \"membershipType\": \"ANNUAL MEMBER\",\n            \"solarMessage\": \"SBL-Active Lounge Member\",\n            \"loungeRenewalDt\": \"5/1/2021\",\n            \"tier\": \"MVP Gold 75K\",\n            \"bofaCardDesig\": \"\",\n            \"mileagePlan\": \"300075941\",\n            \"eligibleToRenew\": \"true\",\n            \"millionMilerInd\": \"No\",\n            \"firstName\": \"Chip\",\n            \"lastName\": \"Linnenlord\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5111/mock",
+					"host": [
+						"localhost"
+					],
+					"port": "5111",
+					"path": [
+						"mock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tilda token mock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"path\": \"/account/token\",\n        \"params\": {},\n        \"body\": {}\n    },\n    \"response\": {\n        \"type\": \"obj\",\n        \"status\": \"200\",\n        \"body\": {\n            \"loggedIn\": true,\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJHdWlkIjoiNDdkZDA2NGEtZTg5MC00MmE1LTk3MGMtM2VjNDQwMGJkODJkIiwiSXNTdXBlclVzZXIiOiJGYWxzZSIsIkNvbnRhY3RJZCI6IjEtVEUwTk42IiwiYmlydGhkYXRlIjoiNC8zMC8xOTg1IiwiZ2l2ZW5fbmFtZSI6Ik5pY2siLCJmYW1pbHlfbmFtZSI6IlRlc3RlciIsIk1pbGVhZ2VQbGFuIjoiMzAwMDc1OTQxIiwibmJmIjoxNTc5ODkyMTY3LCJleHAiOjE5Nzk4OTI0NjcsImlhdCI6MTU3OTg5MjE2NywiaXNzIjoiaHR0cHM6Ly93d3cuYWxhc2thYWlyLmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LmFsYXNrYWFpci5jb20ifQ.88OvDnWXZ4hIbOH7z1DjIi3cU8UDI4J6D6MGH2m2Si8\",\n            \"type\": \"mad type\",\n            \"lifetime\": 99999,\n            \"accountGuid\": \"47dd064a-e890-42a5-970c-3ec4400bd82d\",\n            \"alaskaLoyaltyNumber\": \"123456\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5111/mock",
+					"host": [
+						"localhost"
+					],
+					"port": "5111",
+					"path": [
+						"mock"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
