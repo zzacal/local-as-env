@@ -4,7 +4,8 @@
 Start this local env by:
 1. have docker desktop running
 1. `./sample-startup.sh`
-1. docker ps
+1. if you get the message `Empty reply from server`, the curl commands were run before the mock was ready.
+1. no worries. Just run the mock script `./sample-mock.sh`
 
 ## Get buffy and point its dependencies to your local
 1. clone buffy
