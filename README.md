@@ -1,11 +1,18 @@
 # local-as-env
 
-## Startup the dependencies
-Start this local env by:
+## Startup just the external dependencies
+Start this local environment by:
 1. have docker desktop running
 1. run `docker-compose up`
 
-## Get buffy and point its dependencies to your local
+## (Optionally) Run buffy along with the dependencies
+If you don't even want buffy running as a process
+1. Shutdown the current env `docker-compose down`
+1. Have buffy as an image on your local.
+    - if you don't, run this at the root of buffy's repo `docker build -t loungemember-service:dev .`
+1. In this repo, run `docker-compose -f docker-compose.yml -f docker-compose.with-buffy.yml up`
+
+## Get buffy and point its dependencies to your local (If you want buffy to run as a process instead)
 1. clone buffy
 1. go through the readme and follow start up instructions
 1. **add or update the following in .env. (Don't forget to backup your envs before updating) `APIM_BASE_URL=http://localhost:5111/` && `ACCOUNT_JWT_SECRET=somesecret`**

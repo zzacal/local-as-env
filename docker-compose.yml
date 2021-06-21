@@ -13,5 +13,7 @@ services:
             - ./data:/data
         expose: 
             - 5111
+            - 80
         ports:
             - "5111:5111"
+            

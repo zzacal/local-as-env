@@ -1,0 +1,13 @@
+services:
+    buffy:
+        image: loungemember-service:dev
+        container_name: buffy
+        environment: 
+            - APIM_BASE_URL=http://mock:5111/
+            - ACCOUNT_JWT_SECRET=somesecret
+            - ACCOUNT_APIM_KEY=SOMEAPIMKEY
+            - APP_INSIGHTS_KEY=SOMEAPPINSIHGTS
+        expose:
+            - 5000
+        ports:
+            - "5000:5000"
