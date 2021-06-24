@@ -55,7 +55,7 @@
         }
     },
     {
-        "path": "/1/marketing/loyaltyManagement/lounge/",
+        "path": "/loungemembershipsolarservice/v1.0.0/GetLoungeInfo",
         "params": {},
         "body": {
             "body": {

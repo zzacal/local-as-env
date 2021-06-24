@@ -7,6 +7,7 @@ services:
             - ACCOUNT_JWT_SECRET=somesecret
             - ACCOUNT_APIM_KEY=SOMEAPIMKEY
             - APP_INSIGHTS_KEY=SOMEAPPINSIHGTS
+            - MEMBER_APIM_KEY=SOMEAPIMKEY
         expose:
             - 5000
         ports:
