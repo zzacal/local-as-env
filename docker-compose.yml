@@ -7,7 +7,7 @@ services:
         ports:
             - "6379:6379"
     tilda:
-        image: jizacal/tilda:0.3
+        image: jizacal/tilda:v2.0-alpha
         container_name: mock
         volumes:
             - ./data:/data

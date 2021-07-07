@@ -8,6 +8,7 @@ services:
             - ACCOUNT_APIM_KEY=SOMEAPIMKEY
             - APP_INSIGHTS_KEY=SOMEAPPINSIHGTS
             - MEMBER_APIM_KEY=SOMEAPIMKEY
+            - ET_INFO_APIM_KEY=SOMEETINFOAPIM
         expose:
             - 5000
         ports:
